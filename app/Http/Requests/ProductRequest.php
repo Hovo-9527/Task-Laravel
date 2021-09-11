@@ -24,10 +24,11 @@ class ProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => ['required', 'max:50'],
-            'cost' => ['required', 'max:20'],
-            'price' => ['required', 'max:20'],
-            'category_id' => ['required', 'max:11'],
+            'title' => ['required', 'max:255'],
+            'cost' => ['required',  'integer'],
+            'count' => ['required', 'integer'],
+            'price' => ['required', 'integer'],
+            'category_id' => ['required'],
         ];
     }
 }

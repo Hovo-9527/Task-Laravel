@@ -28,6 +28,10 @@
                         <input type="text" class="form-control" name="cost" placeholder="Cost">
                     </div>
                     <div class="form-group">
+                        <label for="exampleInputEmail1">Count</label>
+                        <input type="text" class="form-control" name="count" value="1" placeholder="Count">
+                    </div>
+                    <div class="form-group">
                         <label for="exampleInputEmail1">Price</label>
                         <input type="text" class="form-control" name="price" placeholder="Price">
                     </div>
@@ -53,17 +57,18 @@
                     <th>Name</th>
                     <th>Cost</th>
                     <th>Price</th>
+                    <th>Count</th>
                     <th>Category_ID</th>
                     <th>Delete</th>
                     <th>Edit</th>
                 </tr>
-
                 @foreach($product as $key)
-                    <tr>
+                    <tr class="@if($key['count']==0) table-danger @endif">
                         <td>{{ $key['id'] }} </td>
                         <td>{{ $key['title'] }}</td>
                         <td>{{ $key['cost'] }}</td>
                         <td>{{ $key['price'] }}</td>
+                        <td>{{ $key['count'] }}</td>
                         <td>{{ $key['category_id']}} </td>
                         <td>
                             <a href="/admin/product/delete/{{ $key['id'] }}" class="btn btn-danger">Delete</a>
@@ -75,6 +80,11 @@
                     </tr>
                 @endforeach
             </table>
+            <ul class="list-group">
+                <li class="list-group-item disabled">Total ` {{ $total }} AMD</li>
+                <li class="list-group-item disabled">Income` {{ $income }} AMD</li>
+                <li class="list-group-item disabled">Without finished products ` {{ $incomeEnding }} AMD</li>
+            </ul>
         </div>
     </div>
 

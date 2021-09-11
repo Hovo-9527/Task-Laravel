@@ -28,6 +28,9 @@
                         <div class="form-group">
                             <input type="text" class="form-control" name="cost" value="{{$data->cost}}" >
                         </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="count" value="{{$data->count}}" >
+                        </div>
 
                         <div class="form-group">
                             <input type="text" class="form-control" name="price" value="{{$data->price}}" >

@@ -28,6 +28,7 @@ Route::prefix('admin')->middleware('checkSuperAdmin')->group(function(){
     // Registration Routes...
     Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
     Route::post('register', 'Auth\RegisterController@register');
+    Route::get('payment', 'admin\PaymentController@index');
 
     Route::prefix('category')->group(function (){
         Route::get('', 'admin\CategoryController@index');
@@ -42,7 +43,11 @@ Route::prefix('admin')->middleware('checkSuperAdmin')->group(function(){
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
-
+Route::get('/worker/product', 'worker\ProductController@index');
+Route::get('/worker/cart', 'worker\CartController@index');
+Route::get('/worker/checkout', 'worker\CartController@checkout');
+Route::get('/cart/add/{id}', 'worker\CartController@store');
+Route::get('/cart/delete/{id}', 'worker\CartController@destroy');
 
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

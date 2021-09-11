@@ -81,6 +81,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="/worker/cart">Cart</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/admin/payment">Payment</a>
+                                </li>
                             @else
                                 <li class="nav-item">
                                     <a class="nav-link" href="/worker/product">Product</a>

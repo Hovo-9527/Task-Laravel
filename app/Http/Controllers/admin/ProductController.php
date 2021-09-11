@@ -19,7 +19,22 @@ class ProductController extends Controller
     {
         $products = Product::all();
         $categories = Category::all();
-        return view('admin.product',compact('categories'))->with('product',$products);
+
+        $total = 0;
+        $costs = 0;
+        $endingTotal=0;
+        $endingCosts=0;
+        foreach ($products as $key){
+            $total+=$key['price'];
+            $costs+=$key['cost'];
+            if($key['count']>0){
+                $endingTotal+=$key['price'];
+                $endingCosts+=$key['cost'];
+            }
+        }
+        $income = $total-$costs;
+        $incomeEnding = $endingTotal-$endingCosts;
+        return view('admin.product',compact('categories', 'incomeEnding', 'total', 'costs', 'income'))->with('product',$products);
     }
 
     /**
@@ -44,6 +59,7 @@ class ProductController extends Controller
         $products->title = $request->title;
         $products->cost = $request->cost;
         $products->price = $request->price;
+        $products->count = $request->count;
         $products->category_id = $request->category_id;
         $products->save();
         return redirect()->back();
@@ -75,12 +91,13 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProductRequest $request, $id)
     {
         Product::where('id', $id)->update([
             'title' => $request->title,
             'cost' => $request->cost,
             'price' => $request->price,
+            'count' => $request->count,
             'category_id' => $request->category_id,
         ]);
 
