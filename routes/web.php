@@ -32,7 +32,7 @@ Route::prefix('admin')->middleware('checkSuperAdmin')->group(function(){
 
     Route::prefix('category')->group(function (){
         Route::get('', 'admin\CategoryController@index');
-        Route::post('add/category', 'admin\CategoryController@store');
+        Route::post('add', 'admin\CategoryController@store');
         Route::get('delete/{id}', 'admin\CategoryController@destroy');
         Route::get('edit/{id}', 'admin\CategoryController@show');
         Route::post('edit/{id}', 'admin\CategoryController@update');

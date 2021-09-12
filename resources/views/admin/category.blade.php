@@ -7,7 +7,7 @@
                 <h3 class="card-title">Add Category</h3>
             </div>
 
-            <form action="add/category" method="POST">
+            <form action="category/add" method="POST">
                 @csrf
                 <div class="card-body">
                     <div class="form-group">

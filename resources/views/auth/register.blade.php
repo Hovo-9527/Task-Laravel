@@ -64,9 +64,11 @@
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Role</label>
 
                             <div class="col-md-6">
-                                <select name="role_id" class="form-control" id="">
-                                    <option value="1">Admin</option>
-                                    <option value="2">Ashxatox</option>
+                                <select name="role_id" class="form-control" id="" required>
+                                    <option value=""></option>
+                                @foreach($roles as $role)
+                                        <option value="{{$role->id}}">{{$role->name}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
