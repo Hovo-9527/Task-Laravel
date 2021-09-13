@@ -1,6 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+    @if(request()->session()->get('response') !== null)
+      <div class="popup-message">
+          {{ request()->session()->get('response') }}
+      </div>
+        @php request()->session()->remove('response') @endphp
+    @endif
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
