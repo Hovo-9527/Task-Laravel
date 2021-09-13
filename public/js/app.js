@@ -1,6 +1,8 @@
-setInterval(()=>{
-    document.querySelector('.popup-message').style.opacity=0;
-},3000)
+if(  document.querySelector('.popup-message')){
+    setInterval(()=>{
+        document.querySelector('.popup-message').style.opacity=0;
+    },3000)
+}
 
     /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({

@@ -22,21 +22,26 @@
                             </div>
                         @endif
                         <div class="form-group">
+                            <label for="exampleInputEmail1">NAME</label>
                             <input type="text" class="form-control" name="title" value="{{$data->title}}" >
                         </div>
 
                         <div class="form-group">
+                            <label for="exampleInputEmail1">Cost</label>
                             <input type="text" class="form-control" name="cost" value="{{$data->cost}}" >
                         </div>
                         <div class="form-group">
+                            <label for="exampleInputEmail1">Count</label>
                             <input type="text" class="form-control" name="count" value="{{$data->count}}" >
                         </div>
 
                         <div class="form-group">
+                            <label for="exampleInputEmail1">Price</label>
                             <input type="text" class="form-control" name="price" value="{{$data->price}}" >
                         </div>
 
                         <div class="form-group">
+                            <label for="exampleInputEmail1">Category_ID</label>
                             <input type="text" class="form-control" name="category_id" value="{{$data->category_id}}" >
                         </div>
                     </div>
